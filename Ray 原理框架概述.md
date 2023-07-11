@@ -1,7 +1,11 @@
 # Ray 原理框架概述
 论文链接：<https://arxiv.org/pdf/1712.05889.pdf>
 ## 1 Ray 基本架构
-Ray的架构由**应用层**和**系统层**组成，其中应用层实现了Ray的API，作为前端供用户使用，而系统层则作为后端来保障Ray的高可扩展性和容错性。整体的架构图如下图所示：
+Ray的架构由**应用层**和**系统层**组成，其中应用层实现了Ray的API，作为前端供用户使用，而系统层则作为后端来保障Ray的高可扩展性和容错性。
+* **应用层：** 实现 API 的应用层，现在包括 Python 和 Java分别实现的版本。
+* **系统层：** 提供高扩展性和容错的系统层，用 C++ 写的，以CPython的形式嵌入包中。
+ 
+整体的架构图如下图所示：
 
 <div align=center>
     <img src="https://github.com/Da-jiao-niu/Ray/blob/main/image/Ray%E6%A1%86%E6%9E%B6.png" width="60%">
