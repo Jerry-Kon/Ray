@@ -1,9 +1,9 @@
 # Ray 原理框架概述
 ## Ray编程模型
-Ray中有两个重要的概念：任务(Task)和行动器(Actor)。Ray编程模型是指Ray框架基于任务和行动器这两个重要需求所向用户提供的一套API及其编程范式。以下是Ray的一些基本API：
-* futures = f.remote(args): 远程地执行函数f。f.remote()以普通对象或future对象作为输入，返回一个或多个future对象，非阻塞执行。
-* objects = ray.get(futures): 返回与一个或多个future对象相关联的真实值，阻塞执行。
-* ready_futures = ray.wait(futures, k, timeout): 当futures中有k个future完成时，或执行时间超过timeout时，返回futures中已经执行完的future。
+Ray中有两个重要的概念：**任务(Task)** 和 **行动器(Actor)**。Ray编程模型是指Ray框架基于任务和行动器这两个重要需求所向用户提供的一套API及其编程范式。以下是Ray的一些基本API：
+* ***futures = f.remote(args):*** 远程地执行函数f。f.remote()以普通对象或future对象作为输入，返回一个或多个future对象，非阻塞执行。
+* ***objects = ray.get(futures):*** 返回与一个或多个future对象相关联的真实值，阻塞执行。
+* ***ready_futures = ray.wait(futures, k, timeout):*** 当futures中有k个future完成时，或执行时间超过timeout时，返回futures中已经执行完的future。
 任务是指在无状态的工作器中执行的远程函数。远程函数被调用时会立即返回一个future对象，而真正的返回值可以通过ray.get(<future对象>)的方式来获取。这样的编程模型既允许用户编写并行计算代码，同时又提醒用户要关注数据之间的依赖性。
 
 任务的编程范式如下：
@@ -68,7 +68,7 @@ if __name__ == "__main__":
 ```
 
 ### 系统层
-系统层由三个主要部件组成：全局控制存储器 (Global Control Store)、分布式调度器 (Distributed Scheduler)和分布式对象存储器 (Distributed Object Store)。这些部件在横向上是可扩展的，即可以增减这些部件的数量，同时还具有一定的容错性。
+系统层由三个主要部件组成：**全局控制存储器 (Global Control Store)、分布式调度器 (Distributed Scheduler)和分布式对象存储器 (Distributed Object Store)**。这些部件在横向上是可扩展的，即可以增减这些部件的数量，同时还具有一定的容错性。
 #### 全局控制存储(GCS)
 GCS设计的初衷是让系统中的各个组件都变得尽可能地无状态，因此GCS维护了一些全局状态：
 * 对象表 (Object Table)：记录每个对象存在于哪些节点
