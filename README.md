@@ -1,4 +1,4 @@
-# Ray
+![image](https://github.com/Da-jiao-niu/Ray/assets/92307128/9c34b7ad-3420-4b69-8e01-65a7b0cc5b6e)# Ray
 ## Ray编程模型
 Ray中有两个重要的概念：任务(Task)和行动器(Actor)。Ray编程模型是指Ray框架基于任务和行动器这两个重要需求所向用户提供的一套API及其编程范式。以下是Ray的一些基本API：
 * futures = f.remote(args): 远程地执行函数f。f.remote()以普通对象或future对象作为输入，返回一个或多个future对象，非阻塞执行。
@@ -12,6 +12,16 @@ Ray中有两个重要的概念：任务(Task)和行动器(Actor)。Ray编程模�
 3. 非阻塞提交：无论任务的运行需要多少时间，在提交任务后都会立即返回一个ObjectRef对象
 4. 按需阻塞获取结果：在你需要函数的返回值时，可以通过ray.get来获取
 
-'''ruby
-hello word
-'''
+以下代码是一个任务从注册到运行完成获得结果的示例：
+```ruby
+@ray.remote
+def f(x):
+    return x * x
+
+object_ref = f.remote(2)
+assert ray.get(object_ref) == 4
+```
+## Ray的架构
+Ray的架构由应用层和系统层组成，其中应用层实现了Ray的API，作为前端供用户使用，而系统层则作为后端来保障Ray的高可扩展性和容错性。整体的架构图如下图所示：
+
+
