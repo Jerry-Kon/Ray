@@ -82,7 +82,7 @@ Ray中的任务调度器被分为两层，由一个全局调度器和每个节�
 
 <div align=center>
     
-![image](https://github.com/Da-jiao-niu/Ray/blob/main/image/Ray%E6%A1%86%E6%9E%B6.png)
+![image]()
 </div>
 
 #### 分布式对象存储器 (Distributed Object Store)
