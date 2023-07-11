@@ -1,4 +1,4 @@
-![image](https://github.com/Da-jiao-niu/Ray/assets/92307128/9c34b7ad-3420-4b69-8e01-65a7b0cc5b6e)# Ray
+# Ray
 ## Ray编程模型
 Ray中有两个重要的概念：任务(Task)和行动器(Actor)。Ray编程模型是指Ray框架基于任务和行动器这两个重要需求所向用户提供的一套API及其编程范式。以下是Ray的一些基本API：
 * futures = f.remote(args): 远程地执行函数f。f.remote()以普通对象或future对象作为输入，返回一个或多个future对象，非阻塞执行。
